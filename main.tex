@@ -11,7 +11,7 @@
  % \usepackage[preprint]{neurips_2026}
 % to avoid loading the natbib package, add option nonatbib:
 %    \usepackage[nonatbib]{neurips_2026}
-\usepackage[main, final]{neurips_2026}
+\usepackage[preprint]{neurips_2026}
 
 
 
@@ -85,7 +85,7 @@ The Simulator drives the entire simulation process in discrete rounds, with each
 The Simulator assumes unified responsibility for maintaining the market environment. It manages global state variables in the simulation, such as current price and trading volume. After each Player returns trading instructions, the Simulator executes order matching and clearing logic: matching buy and sell orders, updating positions and cash balances, and adjusting market prices. This environment update process alters agents' perceptual inputs in the next round, forming a closed loop of ``perception-decision-action-feedback.''
 
 \paragraph{Experimental Parameter Management and Logging.}
-The Simulator provides centralized configuration interfaces for experimental parameters and logging functionality. Researchers configure simulation parameters---including agent quantity and types, initial market state, maximum simulation rounds, and transaction fees---through the Simulator's setup interface. During execution, the Simulator automatically records key events and state changes, including per-round market data snapshots, agent action records, order execution details, and final asset distributions. These log data support post-simulation metric calculation and visualized replay analysis.
+The Simulator provides centralized configuration interfaces for experimental parameters and logging functionality. Researchers configure simulation parameters (including agent quantity and types, initial market state, maximum simulation rounds, and transaction fees) through the Simulator's setup interface. During execution, the Simulator automatically records key events and state changes, including per-round market data snapshots, agent action records, order execution details, and final asset distributions. These log data support post-simulation metric calculation and visualized replay analysis.
 
 \subsubsection{Persona}
 \label{subsubsec:persona}
@@ -180,13 +180,13 @@ Scheduler & All phases & Control round progression \& phase transitions & Time p
 \end{figure}
 
 \paragraph{Results Analysis.}
-The fundamental value is approximately 110. In the early market stage, the price hovers around 10\% below the fundamental value, followed by a pronounced acceleration in the initial phase. Within approximately the first 10 rounds, the price rapidly surges to near 180, forming significant price deviation. Compared to the fundamental value, the deviation magnitude expands rapidly during this stage, indicating strong non-fundamental-driven characteristics in the market---consistent with typical manifestations of asset bubble formation, namely ``price departing from fundamentals, deviation magnitude rising rapidly, and accompanied by short-term momentum enhancement.''
+The fundamental value is approximately 110. In the early market stage, the price hovers around 10\% below the fundamental value, followed by a pronounced acceleration in the initial phase. Within approximately the first 10 rounds, the price rapidly surges to near 180, forming significant price deviation. Compared to the fundamental value, the deviation magnitude expands rapidly during this stage, indicating strong non-fundamental-driven characteristics in the market, consistent with typical manifestations of asset bubble formation, namely ``price departing from fundamentals, deviation magnitude rising rapidly, and accompanied by short-term momentum enhancement.''
 
 After reaching the peak, the price enters a phase of high-level oscillation and gradual decline. Although the price retreats from its peak, the decline is limited; the market does not exhibit ``rapid collapse'' or ``significant breach below fundamentals with sustained downward movement'' consistent with bubble bursting. From the deviation perspective, subsequent prices remain long-term in a range approximately 20\% above fundamentals, with the bubble state not fully subsiding.
 
-Meanwhile, momentum and drawdown-related indicators in the model exhibit phase-dependent changes: upward price momentum strengthens during bubble formation, while in subsequent phases, although drawdowns and instability emerge, they fail to trigger sustained intense collapse processes. This result indicates that the market indeed undergoes critical stages of bubble establishment, but bubble bursting remains incomplete---manifested as slow decline in deviation levels and sluggish equilibrium reversion speed.
+Meanwhile, momentum and drawdown-related indicators in the model exhibit phase-dependent changes: upward price momentum strengthens during bubble formation, while in subsequent phases, although drawdowns and instability emerge, they fail to trigger sustained intense collapse processes. This result indicates that the market indeed undergoes critical stages of bubble establishment, but bubble bursting remains incomplete, manifested as slow decline in deviation levels and sluggish equilibrium reversion speed.
 
-Overall, this simulation demonstrates that the market exhibits pronounced bubble characteristics in the initial phase, but fails to show rapid and thorough bubble liquidation in the later phase, ultimately forming a structure of ``long-term overvaluation with gradual reversion''---reflecting that bubble bursting conditions may be insufficiently triggered or that reversion mechanisms exhibit lag in this scenario. The primary reasons for the incomplete bubble bursting in this simulation are likely: insufficient sensitivity of bubble bursting trigger conditions, coupled with weak market mechanisms for fundamental-based correction and reversion.
+Overall, this simulation demonstrates that the market exhibits pronounced bubble characteristics in the initial phase, but fails to show rapid and thorough bubble liquidation in the later phase, ultimately forming a structure of ``long-term overvaluation with gradual reversion,'' reflecting that bubble bursting conditions may be insufficiently triggered or that reversion mechanisms exhibit lag in this scenario. The primary reasons for the incomplete bubble bursting in this simulation are likely: insufficient sensitivity of bubble bursting trigger conditions, coupled with weak market mechanisms for fundamental-based correction and reversion.
 
 
 \subsection{LLM Model}
@@ -201,11 +201,11 @@ Overall, this simulation demonstrates that the market exhibits pronounced bubble
 \end{figure}
 
 \paragraph{Results Analysis.}
-The fundamental value is approximately 100. From the price trajectory, the market does not fluctuate stably around the fundamental value, but instead exhibits persistent deviation characteristics. The price repeatedly surges rapidly to levels significantly above fundamentals, accompanied by sharp pullbacks, forming a recurrent cycle of ``surge---retracement---resurge.'' This repetitive deviation pattern aligns with the basic features of asset bubble formation, namely ``price persistently deviating from fundamentals with deviation not dissipating in a single episode.''
+The fundamental value is approximately 100. From the price trajectory, the market does not fluctuate stably around the fundamental value, but instead exhibits persistent deviation characteristics. The price repeatedly surges rapidly to levels significantly above fundamentals, accompanied by sharp pullbacks, forming a recurrent cycle of ``surge, retracement, and resurge.'' This repetitive deviation pattern aligns with the basic features of asset bubble formation, namely ``price persistently deviating from fundamentals with deviation not dissipating in a single episode.''
 
-From the decomposition results of deviation degree, overvaluation dominates, with deviation reaching substantial magnitudes across multiple phases---indicating that price premiums are not transient noise, but rather states accompanied by progressively accumulating bubble intensity. Meanwhile, deviation rapidly shifts to negative values after high-value phases, indicating that the system indeed possesses certain risk release and drawdown mechanisms.
+From the decomposition results of deviation degree, overvaluation dominates, with deviation reaching substantial magnitudes across multiple phases, indicating that price premiums are not transient noise, but rather states accompanied by progressively accumulating bubble intensity. Meanwhile, deviation rapidly shifts to negative values after high-value phases, indicating that the system indeed possesses certain risk release and drawdown mechanisms.
 
-Following bubble phases, the price does not exhibit rapid, sustained mean reversion after a single bubble burst. Although pronounced sharp drawdowns and deep plunges are observable, prices frequently revert to overvaluation intervals thereafter---resulting in insufficient post-burst recovery and recurrent reemergence of overvaluation states. Thus, compared to the classical path of ``bubble bursting leading to rapid bubble dissipation,'' this simulation more closely approximates a structure of alternating periodic bubbles and drawdowns: bubbles are not thoroughly liquidated, but instead undergo repeated high-level repricing and reaccumulation, causing cumulative bubble intensity to trend upward overall.
+Following bubble phases, the price does not exhibit rapid, sustained mean reversion after a single bubble burst. Although pronounced sharp drawdowns and deep plunges are observable, prices frequently revert to overvaluation intervals thereafter, resulting in insufficient post-burst recovery and recurrent reemergence of overvaluation states. Thus, compared to the classical path of ``bubble bursting leading to rapid bubble dissipation,'' this simulation more closely approximates a structure of alternating periodic bubbles and drawdowns: bubbles are not thoroughly liquidated, but instead undergo repeated high-level repricing and reaccumulation, causing cumulative bubble intensity to trend upward overall.
 
 In summary, this simulation demonstrates sufficient bubble formation, with the market indeed exhibiting significant non-fundamental pricing and persistent overvaluation. However, bubble bursting remains incomplete, primarily manifested as recurrent overvaluation post-drawdown, rendering rapid bubble dissipation difficult. The likely causes are: excessive magnitude of random terms or exogenous shocks in the model, or imbalanced trader structure.
 
@@ -218,20 +218,35 @@ In summary, this simulation demonstrates sufficient bubble formation, with the m
 
 Building upon the preliminary understanding of large language models and their applications, we have identified certain limitations in parameter calibration that currently prevent precise replication of established financial theoretical models. The existing parameter configurations exhibit insufficient granularity in capturing the nuanced dynamics of bubble formation, propagation, and collapse mechanisms as prescribed by canonical asset pricing theory.
 
-Moving forward, we intend to leverage the advanced capabilities of large language models---particularly their capacity for contextual reasoning, multi-agent simulation, and emergent behavior generation---to refine the parameterization framework. Specifically, we aim to:
+Moving forward, we intend to leverage the advanced capabilities of large language models, particularly their capacity for contextual reasoning, multi-agent simulation, and emergent behavior generation, to refine the parameterization framework. Specifically, we aim to:
 
 \begin{itemize}[leftmargin=*]
   \item \textbf{Enhance Parameter Precision:} Utilize LLM-driven sensitivity analysis to identify critical thresholds for bubble ignition and bursting conditions, ensuring alignment with theoretical predictions regarding deviation persistence and mean reversion speeds.
   \item \textbf{Optimize Agent Heterogeneity:} Deploy LLMs to generate more sophisticated trader archetypes with heterogeneous belief formation processes, thereby improving the representation of sentiment-driven momentum and contrarian reversion dynamics.
   \item \textbf{Calibrate Shock Propagation:} Employ LLM-assisted scenario generation to model endogenous and exogenous shock distributions that more accurately trigger regime transitions between bubble accumulation and liquidation phases.
-  \item \textbf{Validate Against Stylized Facts:} Implement iterative feedback loops wherein LLM-generated outputs are systematically benchmarked against empirical regularities of historical bubble episodes---such as super-exponential price growth, increasing volatility, and critical slowing down---to ensure behavioral and statistical fidelity.
+  \item \textbf{Validate Against Stylized Facts:} Implement iterative feedback loops wherein LLM-generated outputs are systematically benchmarked against empirical regularities of historical bubble episodes, such as super-exponential price growth, increasing volatility, and critical slowing down, to ensure behavioral and statistical fidelity.
 \end{itemize}
 
 Through these methodological advancements, we aspire to achieve simulation outputs that converge more tightly with theoretically expected ranges, thereby enhancing the explanatory and predictive power of the modeling framework for asset bubble phenomena.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% 5. Bibliography
+%% Section 6: Conclusion
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Conclusion}
+\label{sec:conclusion}
+
+This study conducted a systematic analysis of the functional architecture and execution logic of an LLM-based multi-agent financial market simulation framework. We dissected the six core components of the system (Simulator, Persona, Proxy, Topology, Communication) and their coordinated execution pipeline, elucidating how each module contributes to the closed loop of perception, decision-making, action, and feedback in a distributed multi-agent environment.
+
+Through an empirical case study on asset bubble simulation, we compared the runtime behaviors of the RAG model and the LLM model. Both models successfully reproduced the formation phase of asset bubbles, exhibiting significant price deviation from fundamental values and pronounced overvaluation dynamics. However, neither model achieved complete bubble bursting: the RAG model produced a pattern of ``long-term overvaluation with gradual reversion,'' where prices remained persistently above fundamentals without rapid collapse; the LLM model exhibited recurrent cycles of ``surge, retracement, and resurge,'' with overvaluation states repeatedly re-emerging after drawdowns, preventing thorough bubble dissipation.
+
+These findings reveal that while current LLM-driven multi-agent systems can generate realistic bubble formation dynamics, their parameter calibration and agent behavioral mechanisms remain insufficient for faithfully replicating the complete lifecycle of asset bubbles, particularly the rapid liquidation and mean-reversion phases predicted by canonical financial theory. The primary limitations identified include insufficient sensitivity of bubble bursting trigger conditions, weak fundamental-based correction mechanisms, and imbalanced trader structure configurations.
+
+This work provides a foundational architectural understanding and empirical baseline for future research on interpretable financial market simulation. The insights gained lay the groundwork for refining parameter precision, enhancing agent heterogeneity, and ultimately constructing an interactive financial sandbox model that offers transparent, explainable decision-making processes for financial practitioners and researchers.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 7. Bibliography
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \bibliography{reference}
 \bibliographystyle{iclr2026_conference}
