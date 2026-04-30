@@ -1,0 +1,16 @@
+\begin{thebibliography}{1}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Ahmed et~al.(2025)Ahmed, Islam, Datta, Kabir, Chowdhury, and
+  Haque]{qwen2.5-analysis}
+Imtiaz Ahmed, Sadman Islam, Partha~Protim Datta, Imran Kabir, Md~Naseef
+  Ur~Rahman Chowdhury, and Ahshanul Haque.
+\newblock Qwen 2.5: A comprehensive review of the leading resource-efficient
+  llm with potentioal to surpass all competitors.
+\newblock 2025.
+
+\end{thebibliography}

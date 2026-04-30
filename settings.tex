@@ -1,0 +1,121 @@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 1. Table and Figure Settings
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Format subfigure captions.
+% Result: Separates label and caption with a space; sets 1pt vertical skip.
+% Note: If "Unused \captionsetup[subfigure]" warning occurs, subcaption package might be missing or conflicting. Keep commented if unused.
+%\captionsetup[subfigure]{labelsep=space, skip=1pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 2. Algorithm Customizations
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Note: The following settings rely on 'algorithm2e'.
+% Since 'icml2026.sty' loads conflicting packages by default, we have commented out algorithm2e in packages.tex.
+% Therefore, these settings must also be commented out to avoid errors.
+
+% Define 'Input' keyword
+% Result: Displays "Input: " in algorithms.
+% \SetKwInput{KwInput}{Input}
+
+% Define 'Output' keyword
+% Result: Displays "Output: " in algorithms.
+% \SetKwInput{KwOutput}{Output}
+
+% Define 'Block' comment style
+% Result: Uses '⊳' symbol for inline comments.
+% \SetKwComment{Block}{$\triangleright$\ }{}
+
+% Attempt to fix compatibility between hyperref and algorithmic
+% \newcommand{\theHalgorithm}{\arabic{algorithm}}
+
+% Define standard comment style
+% Result: Uses '//' for comments.
+% \SetKwComment{Comment}{//  }{}
+
+% Prevent automatic semicolon printing
+% Result: No semicolons automatically added at line ends.
+% \DontPrintSemicolon
+
+% Customize 'if-else' structure
+% Result: Sets display keywords for If, ElseIf, Else.
+% \SetKwIF{If}{ElseIf}{Else}{if}{}{else if}{else}{end if}%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 3. Highlighting and Colors
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Define line highlighting command \HiLi
+% Result: Creates a light gray background for the current line (useful for emphasizing table rows).
+\def\HiLi{\leavevmode\rlap{\hbox to \hsize{\color{gray!20}\leaders\hrule height .8\baselineskip depth .5ex\hfill}}}
+
+% Define dark blue color
+\definecolor{darkblue}{rgb}{0, 0, 0.5}
+
+% Configure hyperlink colors
+% Result: Citations, internal links, and URLs appear in dark blue and are clickable in PDF.
+\hypersetup{
+  colorlinks=true,   % Enable colored links
+  citecolor=darkblue, % Color for citations (e.g., [1])
+  linkcolor=darkblue, % Color for internal links (e.g., Figure 1)
+  urlcolor=darkblue   % Color for external URLs
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 4. Code Listings Configuration
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Configure 'listings' package display
+\lstset{
+  basicstyle=\ttfamily\footnotesize,       % Font: Monospaced, footnote size
+  breaklines=true,                         % Line breaking: Auto-wrap long lines
+  breakatwhitespace=false,                 % Break at: Allow breaks at any character, not just spaces
+  showstringspaces=false,                  % String spaces: Do not show visible markers for spaces in strings
+  columns=flexible,                        % Alignment: Flexible character width to avoid awkward spacing
+  frame=single,                            % Frame: Add a single-line frame around code blocks
+  backgroundcolor=\color{lightgray!20}     % Background: Light gray background for code blocks
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 5. Theorem and Proof Environments
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Set theorem style to 'plain'
+% Result: Bold title, italic body (for core statements like Theorems, Lemmas)
+\theoremstyle{plain}
+
+% Define 'theorem' environment
+% Result: Numbered by section (e.g., Theorem 1.1)
+\newtheorem{theorem}{Theorem}[section]
+
+% Define 'proposition' environment
+% Result: Shares numbering with Theorem (e.g., Proposition 1.2)
+\newtheorem{proposition}[theorem]{Proposition}
+
+% Define 'lemma' environment
+% Result: Shares numbering with Theorem (e.g., Lemma 1.3)
+\newtheorem{lemma}[theorem]{Lemma}
+
+% Define 'corollary' environment
+% Result: Shares numbering with Theorem (e.g., Corollary 1.4)
+\newtheorem{corollary}[theorem]{Corollary}
+
+% Set theorem style to 'definition'
+% Result: Bold title, upright body (for Definitions, Assumptions)
+\theoremstyle{definition}
+
+% Define 'definition' environment
+% Result: Shares numbering with Theorem
+\newtheorem{definition}[theorem]{Definition}
+
+% Define 'assumption' environment
+% Result: Shares numbering with Theorem
+\newtheorem{assumption}[theorem]{Assumption}
+
+% Set theorem style to 'remark'
+% Result: Italic title, upright body (for Remarks)
+\theoremstyle{remark}
+
+% Define 'remark' environment
+% Result: Shares numbering with Theorem
+\newtheorem{remark}[theorem]{Remark}
+
+
+

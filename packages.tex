@@ -1,0 +1,136 @@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 1. Graphics and Color Handling
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Support for including graphics (images, plots)
+\usepackage{graphicx} 
+
+% Support for color management (text color, background color)
+\usepackage{xcolor}
+
+% Advanced color management for tables (row/column shading)
+\usepackage{colortbl}
+
+% Create colored and framed text boxes (fancy boxes for highlights)
+\usepackage[most]{tcolorbox}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 2. Tables and Figures
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Professional quality tables (improves spacing and rules)
+\usepackage{booktabs}
+
+% Support for multi-row cells in tables
+\usepackage{multirow}
+
+% Adjust content size (scale, rotate, clip boxes)
+\usepackage{adjustbox}
+
+% Advanced cell formatting (line breaks within cells)
+\usepackage{makecell}
+
+% Auto-width tables (columns that fill available width)
+\usepackage{tabularx}
+
+% Tables that span multiple pages
+\usepackage{longtable}
+
+% Extended array and tabular environments
+\usepackage{array}
+
+% Support for subfigures (figures within figures)
+\usepackage{subcaption}
+
+% Wrap text around figures and tables
+\usepackage{wrapfig} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 3. Typography and Formatting
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Input encoding support (UTF-8)
+\usepackage[utf8]{inputenc} 
+
+% Micro-typographic extensions (improves spacing and kerning)
+\usepackage[patch=none]{microtype}
+
+% Customizing captions in floating environments
+% Note: Commented out because subcaption already handles caption customization.
+% \usepackage{caption}
+
+% Allow double-column floats at the bottom of pages
+\usepackage{stfloats}
+
+% Line numbering (useful for review process)
+\usepackage{lineno}
+
+% Additional symbols (text symbols like copyright, registered trademark)
+\usepackage{textcomp}
+
+% Font encoding (OT1 for compatibility)
+\usepackage[OT1]{fontenc} 
+
+% Balance columns on the last page of two-column documents
+\usepackage{balance}
+
+% Customizing lists (enumerate, itemize)
+\usepackage{enumitem} 
+
+% Nice fractions (e.g., 1/2 instead of 1 over 2)
+\usepackage{nicefrac}       
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 4. Math and Logic
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% AMS math packages (essential for advanced math typesetting)
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{bm}       % Bold math symbols
+
+% Theorem environments (theorems, lemmas, proofs)
+\usepackage{amsthm}
+
+% Dingbat symbols (checkmarks, crosses, etc.)
+\usepackage{pifont}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 5. Algorithms and Code
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% NOTE: 'algorithm2e' is commented out because 'icml2026.sty' already loads 'algorithm' and 'algorithmic'.
+% Enabling it here causes a "Command \algorithm already defined" error.
+% \usepackage[ruled,linesnumbered]{algorithm2e}
+
+% NOTE: 'algpseudocode' is also incompatible with the default 'algorithmic' package loaded by 'icml2026.sty'.
+% \usepackage{algpseudocode}
+
+% Source code listing (syntax highlighting)
+\usepackage{listings}
+
+% Verbatim environment (for raw text output)
+\usepackage{verbatim}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 6. Navigation and Hyperlinks
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Support for hyperlinks (citations, URLs, cross-references)
+% Note: Usually loaded last to avoid conflicts.
+\usepackage{hyperref}
+
+% Attempt to make hyperref and algorithmic work together better:
+\newcommand{\theHalgorithm}{\arabic{algorithm}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 7. Development and Review
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Insert 'to-do' items and comments in the document (useful for drafts)
+% Option 'textsize=tiny' makes the note text small.
+% You can add 'disable' to the options to hide all notes (e.g., [disable,textsize=tiny])
+\usepackage[textsize=tiny]{todonotes}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Reference
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% cleveref must be set after the hyperref
+\usepackage[capitalize,noabbrev]{cleveref}
+
+
